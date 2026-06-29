@@ -1,81 +1,125 @@
-<div align="center">
+# 📄 Document Analysis API
 
-  <img src="./.github/assets/blue-saiyan-bg.png" alt="Logo" height="200">
-  <h1 align="center"><strong>NODE BOILERPLATE - BLUE EDITION</strong></h1>
-  <p align="center">
-	  Don't start a new Node project from zero!<br> Use this simple <b>Nodejs</b> boilerplate with pre-configured <b>Typescript</b> in a modern way.
-  </p>
+API REST desenvolvida com **Node.js**, **Fastify** e **TypeScript** para simular um serviço de análise de documentos.
 
-</div>
+---
 
-<br />
+# Tecnologias utilizadas
 
-  <!-- Badges -->
-<div align="center">
-  
-  [![TypeScript version][ts-badge]][typescript-5-4]
-  [![Node.js version][nodejs-badge]][nodejs]
+* Node.js
+* Fastify
+* TypeScript
+* tsx
+* tsup
 
-</div>
+---
 
-# 🚀 Technologies
+# Funcionalidades
 
-This code source was developed with the following items:
+A API permite:
 
-### 📦 Dependencies
+* Listar documentos cadastrados
+* Buscar documento por ID
+* Simular o envio de um documento para análise
+* Atualizar o status da análise
+* Remover documentos
 
-- [typescript][typescript-npm] - Superset for application scale JavaScript development
-- [tsx][tsx-npm] - TypeScript Execute (tsx): Enable Node.js to run TypeScript
-- [tsup][tsup-npm] - Bundle your TypeScript library with no config, powered by esbuild
-- [@types/node][@types/node-npm] - type definitions for node
+Todos os dados são armazenados em memória, não sendo utilizado banco de dados, mantendo a simplicidade.
 
-### 📄 Files
+---
 
-- `.gitignore` - Ignore folders like node_modules
-- `.env` - Enviroment variables
-- `tsconfig.json` - Typescript configure Options
+# Estrutura do Projeto
 
-### ⚡ Scripts
-
-- `npm run dist`: Compiles TypeScript files to JavaScript in the dist directory.
-- `npm run start:dev`: Runs the server in development mode with environment variables loaded from the .env file.
-- `npm run start:watch`: Runs the server in development mode with support for automatic reload on file changes.
-- `npm run start:dist`: Compiles the project and runs the compiled version from the dist directory.
-
-# 👨‍💻 How To Use
-
-click in **[Use this template]** OR
-
-To clone and run this application, you'll need [Git](https://git-scm.com), [Node.js v20+](https://nodejs.org/en/) + [NPM v10+](https://nodejs.org/en/) installed on your computer. From your command line:
-
-```bash
-# Clone this repository
-$ git clone https://github.com/felipeAguiarCode/node-blue-boilerplate
-
-# Go into the repository
-$ cd node-blue-boilerplate
-
-# Install dependencies
-$ npm install
+```
+src
+ └── server.ts
 ```
 
-## Author
+---
 
-| [<img src="https://avatars3.githubusercontent.com/u/37452836?s=96&v=4"><br><sub>Felipe Aguiar</sub>](https://github.com/felipeAguiarCode) |
-| :---------------------------------------------------------------------------------------------------------------------------------------: |
-|                                            [Linkedin](www.linkedin.com/in/felipe-aguiar-exe/)                                             |
+# Endpoints
 
-# Credits
+## GET /documents
 
-icons by [Pino Lamanna][dribble-icon]
+Lista todos os documentos.
 
-[typescript]: https://www.typescriptlang.org/
-[typescript-5-4]: https://www.typescriptlang.org/
-[ts-badge]: https://img.shields.io/badge/TypeScript-5.4-blue.svg
-[nodejs-badge]: https://img.shields.io/badge/Node.js->=%2020.00-blue.svg
-[nodejs]: https://nodejs.org/
-[dribble-icon]: https://dribbble.com/Schakalwal
-[typescript-npm]: https://www.npmjs.com/package/typescript
-[tsx-npm]: https://www.npmjs.com/package/tsx
-[tsup-npm]: https://www.npmjs.com/package/tsup
-[@types/node-npm]: https://www.npmjs.com/package/@types/node
+---
+
+## GET /documents/:id
+
+Retorna um documento pelo ID.
+
+---
+
+## POST /documents
+
+Simula o envio de um documento.
+
+Exemplo:
+
+```json
+{
+    "fileName":"Curriculo.pdf",
+    "category":"RH"
+}
+```
+
+---
+
+## PUT /documents/:id/status
+
+Atualiza o status da análise.
+
+Exemplo:
+
+```json
+{
+    "status":"Analisado"
+}
+```
+
+---
+
+## DELETE /documents/:id
+
+Remove um documento.
+
+---
+
+# Executando o projeto
+
+Clone o repositório
+
+```bash
+git clone URL_DO_SEU_REPOSITORIO
+```
+
+Entre na pasta
+
+```bash
+cd document-analysis-api
+```
+
+Instale as dependências
+
+```bash
+npm install
+```
+
+Execute em modo desenvolvimento
+
+```bash
+npm run start:dev
+```
+
+Servidor disponível em:
+
+```
+http://localhost:3333
+```
+
+---
+
+# Autor
+
+Jean Claude Barreto
